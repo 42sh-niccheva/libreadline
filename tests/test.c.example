@@ -1,0 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/14 10:42:45 by niccheva          #+#    #+#             */
+/*   Updated: 2016/06/14 14:20:45 by niccheva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "history.h"
+#include "libft.h"
+#include "list.h"
+
+/*
+** compile with:
+** gcc test.c -I./includes -I../libft/includes							\
+** -I../liblist/includes -L. -lreadline -L../libft -lft -L../liblist -llist"
+*/
+
+int		main(void)
+{
+	init_history();
+
+	add_history("0");
+	add_history("1");
+	add_history("2");
+	add_history("3");
+	add_history("4");
+	add_history("5");
+	add_history("6");
+	add_history("7");
+	add_history("8");
+	add_history("9");
+
+	char *a = get_history_line_at(1);
+	char *b = get_history_line_from(1);
+
+	printf("a: %s, expected 0, b: %s, expected 9\n", a, b);
+
+	ft_strdel(&a);
+	ft_strdel(&b);
+
+	a = get_history_line_at(10);
+	b = get_history_line_from(10);
+
+	printf("a: %s, expected 9, b: %s, expected 0\n", a, b);
+
+	ft_strdel(&a);
+	ft_strdel(&b);
+
+	a = get_history_line_at(5);
+	b = get_history_line_from(5);
+
+	printf("a: %s, expected 4, b: %s, expected 5\n", a, b);
+
+	ft_strdel(&a);
+	ft_strdel(&b);
+
+	add_history("abcdefghij1");
+	add_history("abcdefghij2");
+	add_history("abcdefghij3");
+
+	char *s = get_history_line_start_with("abcd");
+	char *s2 = get_history_line_start_with("abcdefghij1");
+
+	printf("s: %s, expected abcdefghij3, s2: %s, expected abcdefghij1\n", s, s2);
+
+	ft_strdel(&s);
+	ft_strdel(&s2);
+
+	char	**tab = get_history_lines_start_with("abcd");
+
+	uint64_t i = 0;
+
+	while (tab && tab[i])
+	{
+		printf("\t%s\n", tab[i]);
+		ft_strdel(&(tab[i]));
+		++i;
+	}
+	free(tab);
+
+	printf("size: %llu, expected 13\n", get_history_size());
+	clear_history();
+	printf("size: %llu, expected 0\n", get_history_size());
+	add_history("a");
+	printf("size: %llu, expected 1\n", get_history_size());
+
+	delete_history();
+
+	return (0);
+}

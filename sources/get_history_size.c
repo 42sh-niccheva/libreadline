@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   readline.h                                         :+:      :+:    :+:   */
+/*   get_history_size.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/09 18:58:50 by niccheva          #+#    #+#             */
-/*   Updated: 2016/06/12 15:47:25 by niccheva         ###   ########.fr       */
+/*   Created: 2016/06/13 10:21:51 by niccheva          #+#    #+#             */
+/*   Updated: 2016/06/13 13:20:21 by niccheva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READLINE_H
-# define READLINE_H
+#include "history.h"
+#include "private_history.h"
 
-
-
-#endif
+uint64_t		get_history_size(void)
+{
+	return (g_history_size);
+}

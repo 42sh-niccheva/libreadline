@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   readline.h                                         :+:      :+:    :+:   */
+/*   init_history_entry.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/09 18:58:50 by niccheva          #+#    #+#             */
-/*   Updated: 2016/06/12 15:47:25 by niccheva         ###   ########.fr       */
+/*   Created: 2016/06/12 23:20:08 by niccheva          #+#    #+#             */
+/*   Updated: 2016/06/12 23:23:20 by niccheva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READLINE_H
-# define READLINE_H
+#include "private_history.h"
+#include "libft.h"
+#include <stdlib.h>
 
+t_history_entry		*init_history_entry(const char *line)
+{
+	t_history_entry	*entry;
 
-
-#endif
+	entry = NULL;
+	if (line)
+	{
+		entry = (t_history_entry *)malloc(sizeof(*entry));
+		if (entry)
+		{
+			entry->line = ft_strdup(line);
+			init_list(&(entry->list));
+		}
+	}
+	return (entry);
+}

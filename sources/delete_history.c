@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   readline.h                                         :+:      :+:    :+:   */
+/*   delete_history.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/09 18:58:50 by niccheva          #+#    #+#             */
-/*   Updated: 2016/06/12 15:47:25 by niccheva         ###   ########.fr       */
+/*   Created: 2016/06/14 10:40:34 by niccheva          #+#    #+#             */
+/*   Updated: 2016/06/14 10:41:50 by niccheva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READLINE_H
-# define READLINE_H
+#include "private_history.h"
+#include "history.h"
+#include <stdlib.h>
 
-
-
-#endif
+void		delete_history(void)
+{
+	clear_history();
+	free(g_history);
+	g_history = NULL;
+}
