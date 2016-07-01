@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/09 10:17:09 by niccheva          #+#    #+#              #
-#    Updated: 2016/07/01 15:08:49 by niccheva         ###   ########.fr        #
+#    Updated: 2016/07/01 17:01:58 by llapillo         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -37,6 +37,7 @@ SOURCES			=	main.c
 SOURCES			+=	phase_1.c
 SOURCES			+=	phase_2.c
 SOURCES			+=	phase_3.c
+SOURCES			+=	phase_4.c
 
 OBJECTS			=	$(patsubst %.c, $(DOBJECTS)%.o, $(SOURCES))
 

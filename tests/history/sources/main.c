@@ -6,7 +6,7 @@
 /*   By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/01 14:02:31 by niccheva          #+#    #+#             */
-/*   Updated: 2016/07/01 15:09:15 by niccheva         ###   ########.fr       */
+/*   Updated: 2016/07/01 16:49:08 by llapillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			main(void)
 	phase_1();
 	phase_2();
 	phase_3();
+	phase_4();
 	delete_history();
 	return (0);
 }
